@@ -1,0 +1,28 @@
+{
+  "name": "api-rest-node",
+  "version": "0.1.0",
+  "description": "Projeto para melhorar o aprendizado sobre NodeJs",
+  "main": "app.js",
+  "scripts": {
+	"start": "node app.js",
+	"clean": "rm -rf node_modules",  
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeandobre/api-rest-node.git"
+  },
+  "keywords": [
+    "api",
+    "rest"
+  ],
+  "author": "Jean Alexandre Dobre <jeandobre@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeandobre/api-rest-node/issues"
+  },
+  "homepage": "https://github.com/jeandobre/api-rest-node#readme",
+  "dependencies": {
+    "npm": "^6.13.7"
+  }
+}
