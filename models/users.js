@@ -37,17 +37,15 @@ module.exports = (sequelize, DataType) => {
 		},
 
 		classMethods: {
-			associate: (models) => {
+			associate: models => {
 				Users.hasMany(models.Tasks);
 			},
-			
-			isPassword: (encodedPassword, password) => {
-				console.log(encodedPassword);
-				console.log(password);
-				return bcrypt.compareSync(password, encodedPassword);
-			}
-		}
+		}, 
 	});
+
+	Users.isPassword = function(encodedPassword, password){
+		return bcrypt.compareSync(password, encodedPassword);
+	};
 
 	return Users;
 };

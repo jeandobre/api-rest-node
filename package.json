@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node index.js",
     "clean": "rm -rf node_modules",
-    "test": "node test.js"
+    "test": "SET NODE_ENV=test && mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,11 @@
     "passport-jwt": "^4.0.0",
     "sequelize": "^5.21.4",
     "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "supertest": "^4.0.2"
   }
 }

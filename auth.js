@@ -6,9 +6,10 @@ module.exports = app => {
 	const cfg = app.libs.config;
 	const params = {
 		secretOrKey: cfg.jwtSecret,
-		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+		jwtFromRequest: ExtractJwt.fromHeader("authorization")
 	};
 	const strategy = new Strategy(params, ( payload, done ) => {
+		
 		Users.findByPK(payload.id)
 		.then(user => {
 			if(user){
