@@ -9,7 +9,9 @@ module.exports = app => {
 			const email = req.body.email;
 			const password = req.body.password;
 			Users.findOne({ where: { email: email } })
-			.then(user => {
+			.then(user => {	
+				console.log(user.password);
+				console.log(password);			
 				if(Users.isPassword(user.password, password)){
 					const payload = { id: user.id };
 					res.json({
