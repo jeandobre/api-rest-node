@@ -4,9 +4,16 @@
   "description": "Projeto para melhorar o aprendizado sobre NodeJs",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
+    "start": "npm run apidoc && babel-node index.js",
     "clean": "rm -rf node_modules",
-    "test": "SET NODE_ENV=test && mocha test/**/*.js"
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
+    "test": "NODE_ENV=test mocha test/**/*.js"
+  },
+  "apidoc" : {
+    "name": "Documentação - Node Task API",
+    "template": {
+      "forceLanguage": "pt_br"
+    }
   },
   "repository": {
     "type": "git",
@@ -37,6 +44,7 @@
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
+    "apidoc": "^0.20.0",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "mocha": "^7.0.1",

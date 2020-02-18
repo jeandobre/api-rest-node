@@ -1,4 +1,5 @@
 import bodyParser from "body-parser";
+import express from "express";
 
 module.exports = app => {
 	//Apenas para formatar o json e facilitar a visualização
@@ -11,4 +12,5 @@ module.exports = app => {
 		delete req.body.id;
 		next();
 	});
+	app.use(express.static("public"));
 };
