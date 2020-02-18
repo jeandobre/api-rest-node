@@ -5,7 +5,7 @@ module.exports = app => {
 	//app.set("json spaces", 4);
 	app.set("port", 8080);
 	app.use(bodyParser.json());
-	//app.use(app.auth.initialize());
+	app.use(app.auth.initialize());
 	app.use((req, res, next) => {
 		//middleware de pré-execução das rotas
 		delete req.body.id;

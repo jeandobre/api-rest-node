@@ -6,7 +6,7 @@ module.exports = app => {
 	const cfg = app.libs.config;
 	const params = {
 		secretOrKey: cfg.jwtSecret,
-		jwtFromRequest: ExtractJwt.fromHeader("authorization")
+		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()  //fromHeader("authorization")
 	};
 	const strategy = new Strategy(params, ( payload, done ) => {
 		
