@@ -3,6 +3,30 @@ module.exports = app => {
 	
 	app.route("/tasks")
 	.all(app.auth.authenticate())
+	/**
+	 * @api {get} /tasks Lista de tarefas
+	 * @apiGroup Tarefas
+	 * @apiHeader {String} Authorization Token de usuário
+	 * @apiHeaderExample {json} Header
+	 * 	{"Authorization": "JWT xyz.abc.123.hgf"}
+	 * @apiSuccess {Object[]} tasks Lista de tarefas
+	 * @apiSuccess {Number} tasks.id Id de registro
+	 * @apiSuccess {String} tasks.title Título da tarefa
+	 * @apiSuccess {Boolean} tasks.done Tarefa foi concluída?
+	 * @apiSuccess {Date} tasks.updated_at Data de atualização
+	 * @apiSuccess {Date} tasks.created_at Data de cadastro
+	 * @apiSuccessExample {json} Sucesso
+	 * 	HTTP/1.1 200 OK
+	 * 	[{
+	 * 		"id": 1,
+	 * 		"title": "Estudar",
+	 * 		"done": False,
+	 * 		"updated_at": "xxxx",
+	 * 		"user_id": 1
+	 * 	}]
+	 * @apiErrorExample {json} Erro de consulta
+	 * 	HTTP/1.1 412 Precondition Failed
+	 */
 	.get((req, res) => {
 		Tasks.findAll({
 			where: { user_id: req.user.id }
