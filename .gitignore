@@ -8,3 +8,6 @@
 /ntask.sqlite
 /public/apidoc
 /logs
+/client/node_modules
+/client/.vscode
+/client/public/js
